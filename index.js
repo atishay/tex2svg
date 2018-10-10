@@ -31,6 +31,7 @@ server.on('request', function (req, res) {
         svg: true
     }, function (data) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
+        data.svg = data.svg.replace(/^<svg/, `<svg class="${search.inline ? "i-" : ""}tex"`);
         res.end(JSON.stringify(data));
     });
 });
