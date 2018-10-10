@@ -9,7 +9,12 @@ mjAPI.config({
 });
 mjAPI.start();
 
-const server = http.createServer().listen(3000);
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+app.listen(port);
+const server = http.createServer().listen(port);
 
 server.on('request', function (req, res) {
     console.log(req.url);
