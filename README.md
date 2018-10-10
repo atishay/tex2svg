@@ -10,7 +10,7 @@ Latex to SVG converter using MathJax. Provides URL based SVG conversion so that 
 {{- if eq (.Get 0) "inline" -}}
 {{ $inline = "&inline=true" }}
 {{- end -}}
-{{- $json := getJSON $.Site.Params.Tex "?q" (querify "" .Inner) $inline -}}
+{{- $json := getJSON $.Site.Params.Tex "?" (querify "q" .Inner) $inline -}}
 {{- with $json.svg -}}
 {{. | safeHTML}}
 {{- end -}}
